@@ -81,7 +81,7 @@ struct Util {
     static bool findProcess(const String& windowName, DWORD& procId, HWND& hWnd) {
         hWnd = 0;
         procId = 0;
-        Char title[1024] = { 0 };
+        Char title[1024 * 100] = { 0 };
 	    while (hWnd = FindWindowEx(0, hWnd, 0, 0)) {
             ::GetWindowText(hWnd, title, sizeof(title));
             if (wcsstr(title, windowName.c_str())) {
@@ -156,7 +156,7 @@ private:
     String  _cfgPath;
 
     bool readOption(const String& optionName, bool allowEmpty, String& option) {
-        Char buf[1024] = { 0 };
+        Char buf[1024 * 100] = { 0 };
         ::GetPrivateProfileString(L"Target", optionName.c_str(), L"", buf, sizeof(buf), _cfgPath.c_str());
         if (wcslen(buf) < 1 && !allowEmpty) {
             Util::msg(L"Config parameter 'Target -> %s' not defined", optionName.c_str());
