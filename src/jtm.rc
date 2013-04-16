@@ -1,0 +1,31 @@
+#include <windows.h>
+#include "resource.h"
+
+JTM_ICON_NAME	ICON		"..\\images\\jtm.ico"
+JTM_ICON_ON     ICON	    "..\\images\\on.ico"
+JTM_ICON_OFF	ICON		"..\\images\\off.ico"
+
+VS_VERSION_INFO VERSIONINFO
+FILEVERSION    	JTM_VERSION
+PRODUCTVERSION 	JTM_VERSION
+FILEFLAGSMASK  	VS_FFI_FILEFLAGSMASK
+FILEOS         	VOS__WINDOWS32
+FILETYPE       	VFT_DLL
+FILESUBTYPE    	VFT2_UNKNOWN
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "CompanyName",      "Tengi Design"
+            VALUE "LegalCopyright",   JTM_COPYRIGHT_STR
+            VALUE "OriginalFilename", "jtm.exe"
+            VALUE "ProductName",      "Just Tray Me!"
+            VALUE "ProductVersion",   JTM_VERSION_STR
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
